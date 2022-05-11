@@ -25,8 +25,6 @@ foreach($database as $album){
   <!-- vue 2 + main.js-->
   <script src='https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js' defer></script>
   <script type='text/javascript' src='./assets/js/main2.js' defer></script>
-  <!-- axios -->
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
   <title>Dischi vue-php</title>
 </head>
 <body>
@@ -37,7 +35,7 @@ foreach($database as $album){
         <i class="fa-brands fa-spotify"></i>
       </div>
       <div>
-        <select name="genre" id="genre">
+        <select name="genre" id="genre" v-model="selectedGenre" @Change="selectGenre()">
           <option value=""></option>
           <?php 
             foreach($genreArr as $genre){
@@ -47,7 +45,6 @@ foreach($database as $album){
             }
           ?>
         </select>
-        <button>Cerca</button>
       </div>
     </header>
 
@@ -71,5 +68,7 @@ foreach($database as $album){
     </main>
   </div>
 
+  <!-- axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
